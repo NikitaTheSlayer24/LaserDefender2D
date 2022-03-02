@@ -3,16 +3,22 @@ using System.Collections.Generic;
 
 public class PathFinder : MonoBehaviour
 {
-    [SerializeField] private WaveConfigSO waveConfig;
+    private EnemySpawner _enemySpawner;
+    private WaveConfigSO _waveConfig;
+    private List<Transform> _waypoints;
 
-    private List<Transform> waypoints;
+    private int _waypointIndex = 0;
 
-    private int waypointIndex = 0;
+    private void Awake()
+    {
+        _enemySpawner = FindObjectOfType<EnemySpawner>();
+    }
 
     private void Start()
     {
-        waypoints = waveConfig.GetWaypoints();
-        transform.position = waypoints[waypointIndex].position;
+        _waveConfig = _enemySpawner.GetCurrentWave();
+        _waypoints = _waveConfig.GetWaypoints();
+        transform.position = _waypoints[_waypointIndex].position;
     }
 
     private void Update()
@@ -22,15 +28,15 @@ public class PathFinder : MonoBehaviour
 
     private void FollowPath()
     {
-        if (waypointIndex < waypoints.Count)
+        if (_waypointIndex < _waypoints.Count)
         {
-            Vector3 targetPosition = waypoints[waypointIndex].position;
-            float delta = waveConfig.GetMoveSpeed() * Time.deltaTime;
+            Vector3 targetPosition = _waypoints[_waypointIndex].position;
+            float delta = _waveConfig.GetMoveSpeed() * Time.deltaTime;
             transform.position = Vector2.MoveTowards(transform.position, targetPosition, delta);
 
             if (transform.position == targetPosition)
             {
-                waypointIndex++;
+                _waypointIndex++;
             }
         }
         else
