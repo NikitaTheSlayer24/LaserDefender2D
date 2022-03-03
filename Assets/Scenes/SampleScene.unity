@@ -156,6 +156,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f5772bb57c26f644891117621661dfaa, type: 2}
   - {fileID: 11400000, guid: d4847c00e9ed342448a708770f9713d6, type: 2}
   timeBetweenWaves: 0
+  _isLooping: 1
 --- !u!4 &406069963
 Transform:
   m_ObjectHideFlags: 0
@@ -381,26 +382,6 @@ PrefabInstance:
     - target: {fileID: 1084050589091952316, guid: c1be96aa3dc182b4aa84c5decbdd3262, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 5635718121924872428, guid: c1be96aa3dc182b4aa84c5decbdd3262, type: 3}
-      propertyPath: moveSpeed
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 5635718121924872428, guid: c1be96aa3dc182b4aa84c5decbdd3262, type: 3}
-      propertyPath: paddingTop
-      value: -0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5635718121924872428, guid: c1be96aa3dc182b4aa84c5decbdd3262, type: 3}
-      propertyPath: paddingLeft
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5635718121924872428, guid: c1be96aa3dc182b4aa84c5decbdd3262, type: 3}
-      propertyPath: paddingRight
-      value: -0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5635718121924872428, guid: c1be96aa3dc182b4aa84c5decbdd3262, type: 3}
-      propertyPath: paddingBottom
-      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7861219416432501996, guid: c1be96aa3dc182b4aa84c5decbdd3262, type: 3}
       propertyPath: m_RootOrder
