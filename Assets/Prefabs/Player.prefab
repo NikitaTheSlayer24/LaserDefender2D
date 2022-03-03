@@ -137,7 +137,10 @@ MonoBehaviour:
   laserPrefab: {fileID: 995918842412578953, guid: f9799212f83ab8c45a8c531768de836f, type: 3}
   laserSpeed: 10
   laserLifeTime: 5
-  firingRate: 0
+  baseFiringRate: 0.2
+  useAI: 0
+  maximumDuration: 0
+  minimumDuration: 0
 --- !u!114 &4652174292957085474
 MonoBehaviour:
   m_ObjectHideFlags: 0

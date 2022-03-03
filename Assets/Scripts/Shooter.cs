@@ -3,15 +3,30 @@ using UnityEngine;
 
 public class Shooter : MonoBehaviour
 {
+    [Header("General")]
     [SerializeField] private GameObject laserPrefab;
     [SerializeField] private float laserSpeed = 10f;
     [SerializeField] private float laserLifeTime = 5f;
-    [SerializeField] private float firingRate = 0.2f;
+    [SerializeField] private float baseFiringRate = 0.2f;
+
+    [Header("AI")]
+    [SerializeField] private bool useAI;
+    [SerializeField] private float minimumDuration = 0f;
+    [SerializeField] private float maximumDuration = 0f;
 
     private Coroutine _firingCoroutine;
     private GameObject _createdLaser;
 
+    private float _timeToNextLaser;
     private bool _isFiring;
+
+    private void Start()
+    {
+        if (useAI)
+        {
+            _isFiring = true;
+        }
+    }
 
     private void Update()
     {
@@ -45,7 +60,9 @@ public class Shooter : MonoBehaviour
             Rigidbody2D rb = _createdLaser.GetComponent<Rigidbody2D>();
             rb.velocity = transform.up * laserSpeed;
             Destroy(_createdLaser, laserLifeTime);
-            yield return new WaitForSeconds(firingRate);
+            _timeToNextLaser = Random.Range(baseFiringRate - minimumDuration, baseFiringRate + maximumDuration);
+            Debug.Log(_timeToNextLaser);
+            yield return new WaitForSeconds(_timeToNextLaser);
         }
     }
 }
