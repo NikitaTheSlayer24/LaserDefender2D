@@ -15,10 +15,16 @@ public class Shooter : MonoBehaviour
     [SerializeField] private float maximumDuration = 0f;
 
     private Coroutine _firingCoroutine;
+    private AudioPlayer _audioPlayer;
     private GameObject _createdLaser;
 
     private float _timeToNextLaser;
     private bool _isFiring;
+
+    private void Awake()
+    {
+        _audioPlayer = FindObjectOfType<AudioPlayer>();
+    }
 
     private void Start()
     {
@@ -57,11 +63,17 @@ public class Shooter : MonoBehaviour
         while (true)
         {
             _createdLaser = Instantiate(laserPrefab, transform.position, Quaternion.identity);
+
             Rigidbody2D rb = _createdLaser.GetComponent<Rigidbody2D>();
+
             rb.velocity = transform.up * laserSpeed;
+
             Destroy(_createdLaser, laserLifeTime);
+
             _timeToNextLaser = Random.Range(baseFiringRate - minimumDuration, baseFiringRate + maximumDuration);
-            Debug.Log(_timeToNextLaser);
+
+            _audioPlayer.PlayShootingClip();
+
             yield return new WaitForSeconds(_timeToNextLaser);
         }
     }
