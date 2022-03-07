@@ -6,8 +6,16 @@ public class LevelManager : MonoBehaviour
 {
     [SerializeField] private float sceneLoadDelay = 2f;
 
+    private ScoreKeeper _scoreKepeer;
+
+    private void Awake()
+    {
+        _scoreKepeer = FindObjectOfType<ScoreKeeper>();
+    }
+
     public void LoadGame()
     {
+        _scoreKepeer.ResetScore();
         SceneManager.LoadScene("Game");
     }
 
