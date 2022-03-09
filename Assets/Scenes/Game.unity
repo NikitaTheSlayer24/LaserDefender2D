@@ -1324,6 +1324,18 @@ PrefabInstance:
       propertyPath: applyCameraShake
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5635718121924872428, guid: c1be96aa3dc182b4aa84c5decbdd3262, type: 3}
+      propertyPath: paddingTop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5635718121924872428, guid: c1be96aa3dc182b4aa84c5decbdd3262, type: 3}
+      propertyPath: paddingLeft
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5635718121924872428, guid: c1be96aa3dc182b4aa84c5decbdd3262, type: 3}
+      propertyPath: paddingRight
+      value: 0.6
+      objectReference: {fileID: 0}
     - target: {fileID: 7861219416432501996, guid: c1be96aa3dc182b4aa84c5decbdd3262, type: 3}
       propertyPath: m_RootOrder
       value: 1
